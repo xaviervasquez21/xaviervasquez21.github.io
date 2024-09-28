@@ -1,11 +1,11 @@
 html,
 body{
-    background-color: #302038;
+    background-color: #001f22;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h1{
-    color: #ff2df1;
+    color: #d4ff05;
     font-family: "Jacquarda Bastarda 9", serif;
     font-weight: 400;
     font-style: normal;
@@ -24,13 +24,13 @@ h1{
 }
 
 a{
-    color: aqua;
+    color: #ff05b9;
     text-decoration: none;
     display: block;
     padding: 1rem;
     text-align: center;
     font-size: 2rem;
-    border: 1px solid #ff2df1;
+    border: 1px solid #d4ff05;
     border-radius: 10px;
 }
 
@@ -40,6 +40,6 @@ a{
 
 a:hover{
     transform: scale(1.1);
-    box-shadow: 0px 5px 20px #ff2df1;
-    background-color: aqua;
+    box-shadow: 0px 5px 20px #d4ff05;
+    background-color: #d4ff05;
 }
