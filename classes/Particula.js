@@ -4,11 +4,11 @@ class Particula {
     this.posy = _y; // Posición inicial en Y.
     this.estaViva = true; // La partícula comienza "viva".
     this.tVida = round(random(20, 100)); // Tiempo de vida aleatorio entre 20 y 100 fotogramas.
-    this.tamano = 20; // Tamaño inicial de la partícula.
+    this.tamano = random(10, 25); // Tamaño inicial de la partícula.
 
-    // Definir colores de inicio y fin para el fuego.
-    this.colorInicial = color(255, 255, 0); // Amarillo al inicio.
-    this.colorFinal = color(255, 0, 0); // Rojo al final.
+    // Definir colores de inicio y fin para el fuego, más naturales y terrosos.
+    this.colorInicial = color(255, 165, 0); // Amarillo-oro, como fuego tenue.
+    this.colorFinal = color(139, 69, 19); // Marrón, como el carbón o la madera quemada.
   }
 
   update() {
@@ -24,15 +24,15 @@ class Particula {
     }
 
     // Movimiento hacia arriba para simular que el fuego sube.
-    this.posy -= 2;
-    this.posx += random(-1, 1); // Movimiento horizontal errático pero reducido.
+    this.posy -= random(1, 2); // Movimiento vertical suave y lento.
+    this.posx += random(-1, 1); // Movimiento horizontal errático pero controlado.
 
     // Reducir ligeramente el tamaño para que parezca que la partícula se desvanece.
-    this.tamano *= 0.96; // Disminuye de manera proporcional.
+    this.tamano *= 0.95; // Disminuye de manera proporcional.
   }
 
   display() {
-    // Usar lerpColor para interpolar entre amarillo (inicio) y rojo (fin) según la vida restante.
+    // Usar lerpColor para interpolar entre los colores según la vida restante.
     let colorInterpolado = lerpColor(
       this.colorInicial,
       this.colorFinal,
@@ -40,7 +40,7 @@ class Particula {
     );
 
     // Establecer el color interpolado con opacidad basada en el tiempo de vida restante.
-    let alpha = map(this.tVida, 0, 100, 0, 255); // Transparencia entre 0 y 255.
+    let alpha = map(this.tVida, 0, 100, 50, 255); // Transparencia entre 50 y 255.
     fill(
       red(colorInterpolado),
       green(colorInterpolado),

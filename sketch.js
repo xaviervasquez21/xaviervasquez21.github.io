@@ -4,21 +4,11 @@ function setup() {
   let myCanvas = createCanvas(windowWidth, windowHeight);
   myCanvas.parent("#my-p5-sketch");
   noStroke();
+  cursor("none"); // Eliminar el cursor predeterminado
 }
 
 function draw() {
-  background(0, 200, 180); // Fondo turquesa que cubre todo el canvas
-
-  // Efecto "spray" en los bordes izquierdo y derecho
-  /*for (let i = 0; i < 5; i++) {
-    fill(random(200, 255), random(100, 200), random(100, 200), 100);
-
-    // Posición en los bordes izquierdo y derecho
-    let x = random() < 0.5 ? random(0, 50) : random(width - 50, width);
-    let y = random(height);
-
-    ellipse(x, y, random(10, 50));
-  }*/
+  background(34, 30, 20); // Fondo oscuro y terroso, como una caverna
 
   // Crear una nueva partícula en la posición actual del mouse y agregarla al array.
   particulas.push(new Particula(mouseX, mouseY));
@@ -30,9 +20,9 @@ function draw() {
     return p.estaViva;
   });
 
-  // Líneas en movimiento solo en los bordes izquierdo y derecho
-  stroke(255, 100);
-  strokeWeight(2);
+  // Líneas en movimiento solo en los bordes izquierdo y derecho para dar una sensación de profundidad.
+  stroke(180, 120, 60, 100); // Color cálido de líneas de roca
+  strokeWeight(8);
 
   for (let i = 0; i < height; i += 50) {
     // Líneas en el borde izquierdo
